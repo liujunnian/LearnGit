@@ -1,1 +1,32 @@
 123456
+
+
+
+
+BUG分支处理方式
+
+背景：
+主分支为master，存在一个代号101的BUG需要尽快修改，但开发者在dev分支上的工作只进行了一半，还没发提交（commit）。
+
+处理步骤如下：
+	git status                      //将当前未提交的变化移除，并暂时储藏起来
+	git checkout master             //切换到主分支master
+	git checkout -b issue-101       //创建用于修复BUG-101的分支，并切换到该分支
+
+<<<<<在issue-101上修复BUG-101......>>>>>
+
+	git add .                       //添加修复BUG-101后的文件
+	git commit -m "fix bug 101"     //提交修改了BUG-101的记录【提交后的哈希值为：4c805e2】
+	git switch master               //切换到主分支
+	git merge --no-ff -m "merged bug fix 101" issue-101      //将分支issue-101合并到主分支master，完成（发布版）主程序BUG的修复
+	git switch dev                   //切换到dev分支
+	git stash list                   //查看“未提交变化”的储藏列表
+	git stash pop                    //将之前dev分支上未提交的修改从储藏区中取出，获取指定的储藏内容使用指令：git stash apply stash@{0}
+
+<<<<<继续完成原来dev上的工作...>>>>>
+
+	git add .                             //完成dev上的开发工作后，添加dev分支上被修改的文件
+	git commit -m "commit dev branch"     //提交dev分支上的工作记录
+	git cherry-pick 4c805e2               //将修复BUG-101的提交记录复制一份到当前dev分支，以修复dev分支上也存在的BUG。
+	git checkout master                   //切换到主分支master
+	git merge --no-ff -m "merge dev branch" dev      //将dev分支合并到主分支master，完成新功能的发布工作。
