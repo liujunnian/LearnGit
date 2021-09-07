@@ -1,0 +1,15 @@
+
+
+===将本地文件夹初始化为仓库，关联远程仓库，首次推送至远程仓库
+
+git init  # 将本地当前目录初始化为Git仓库
+
+# 在远程服务器中新建一个远程仓库，使用以下指令将本地仓库关联到远程仓库
+# origin是默认的远程仓库名称
+git remote add origin git@server-name:path/repo-name.git
+
+git add .   # 添加当前目录的所有文件到暂存区
+git commit -m [message]   # 提交暂存区到仓库区
+
+git push -u origin master  # 首次推送master分支的所有内容。
+
