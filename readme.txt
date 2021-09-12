@@ -12,3 +12,6 @@ change readme file on both branch.
 在mydev分支上修改的内容
 在deev分支上修改的内容
 在deev分支上再次修改readme文件的内容
+
+在deev分支上正在修改readme文件的内容过程中
+在deev分支上继续完成之前的修改了工作
