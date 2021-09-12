@@ -9,7 +9,7 @@ BUG分支处理方式
 主分支为master，存在一个代号101的BUG需要尽快修改，但开发者在dev分支上的工作只进行了一半，还没发提交（commit）。
 
 处理步骤如下：
-	git status                      //将当前未提交的变化移除，并暂时储藏起来
+	git stash                      //将当前未提交的变化移除，并暂时储藏起来
 	git checkout master             //切换到主分支master
 	git checkout -b issue-101       //创建用于修复BUG-101的分支，并切换到该分支
 
