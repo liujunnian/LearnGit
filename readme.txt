@@ -8,4 +8,8 @@ Creat a new branch again.
 change readme file something.
 change readme file on both branch.
 在dev分支上修改的内容
+<<<<<<< HEAD
 在master分支上修改的内容
+=======
+在mydev分支上修改的内容
+>>>>>>> mydev
