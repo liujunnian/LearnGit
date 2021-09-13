@@ -1,0 +1,8 @@
+*.o
+*.obj
+
+
+abc.txt
+abc.xlsx
+
+bin/
