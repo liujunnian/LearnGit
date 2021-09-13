@@ -4,5 +4,6 @@
 
 abc.txt
 abc.xlsx
+config.ini
 
-bin/
+*ingnore*
